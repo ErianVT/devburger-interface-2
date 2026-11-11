@@ -248,6 +248,11 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
+cookie@^1.0.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-1.1.1.tgz#3bb9bdfc82369db9c2f69c93c9c3ceb310c88b3c"
+  integrity sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==
+
 css-color-keywords@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
@@ -585,6 +590,21 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-router-dom@^7.18.5:
+  version "7.18.5"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-7.18.5.tgz#25e19a13396de166785c1199227a64bcd6815a8d"
+  integrity sha512-9HcfDMU6JJ/fp6gJZYGwNE6RknVGS4kBjH1HkNw959mCJi70TVwdipQWv2FEol9uGpi+SZTFtVpJPtEQfayeOw==
+  dependencies:
+    react-router "7.18.5"
+
+react-router@7.18.5:
+  version "7.18.5"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-7.18.5.tgz#808611f9f8675fe4506699815168822f4d9f3ee3"
+  integrity sha512-dTgvcXDOrLPrlLHrcZAqWveiK1hMSqN+rGAJzegP8HtmNkfRxOoshGWBNX3ZJ0cZjOHkRdlUJtaIhZMLLyGyPw==
+  dependencies:
+    cookie "^1.0.1"
+    set-cookie-parser "^2.6.0"
+
 react-toastify@^11.2.0:
   version "11.2.0"
   resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-11.2.0.tgz#9035cbf6549c68fca0c150a9591cbc9fe1a41596"
@@ -625,6 +645,11 @@ scheduler@^0.28.0:
   version "0.28.0"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.28.0.tgz#03d3ca348aeaf8b7502f64468f217b27523f9695"
   integrity sha512-juorfCmIkIw8tT+p5BXSm6PJjQF/ycEYmKyzURCIt/RaZIhL+PulbQ9Yu2z1HdOJDdqDTlxA1+xKBmHXJsczAw==
+
+set-cookie-parser@^2.6.0:
+  version "2.7.3"
+  resolved "https://registry.yarnpkg.com/set-cookie-parser/-/set-cookie-parser-2.7.3.tgz#ded8e573414ceb6f5752f610dc9751f4eda0295d"
+  integrity sha512-irZHtTqurLna57KQG/s+fzOwv/J6XSH4cs8M/vsrY3uCaQ3S6+QJguAH0WdN47SXlk82voMZ4naWMQf8fdEoIg==
 
 source-map-js@^1.2.2:
   version "1.2.2"

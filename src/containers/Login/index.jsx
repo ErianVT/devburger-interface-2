@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { api } from '../../services/api'
-import { toast } from 'react-toastify'
 
 import Logo from '../../assets/logo-cor-glow.png'
 import { Button } from '../../components/Button'
+import { api } from '../../services/api'
 import {
 	Container,
 	ContainerLogin,
@@ -41,26 +41,18 @@ export function Login() {
 
 	const onSubmit = async (data) => {
 		const response = await toast.promise(
-
 			api.post('/sessions', {
 				email: data.email,
-				password: data.password
+				password: data.password,
 			}),
 			{
 				pending: 'Verificando suas credenciais...',
 				success: 'Login realizado com sucesso! 🍔',
 				error: 'Email ou senha inválidos 😕',
-			}
-
+			},
 		)
 
-		console.log(response);
-
-
-
-
-
-
+		console.log(response)
 	}
 
 	return (
@@ -89,10 +81,13 @@ export function Login() {
 						<Button type="submit">Entrar</Button>
 					</Form>
 					<p>
-						Não possui uma conta? <a>Cadastre-se</a>
+						Não possui uma conta? <a href="#cadastro">Cadastre-se</a>
 					</p>
 				</ContainerLogin>
 			</RightContainer>
 		</Container>
 	)
 }
+
+// erian@email.com
+// 123456
