@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -13,11 +14,14 @@ import {
 	Form,
 	InputContainer,
 	LeftContainer,
+	Link,
 	RightContainer,
 	Title,
 } from './styles'
 
 export function Register() {
+	const navigate = useNavigate()
+
 	const schema = yup
 		.object({
 			name: yup.string().required('O nome é obrigatório'),
@@ -45,20 +49,34 @@ export function Register() {
 	})
 
 	const onSubmit = async (data) => {
-		const response = await toast.promise(
-			api.post('/users', {
-				name: data.name,
-				email: data.email,
-				password: data.password,
-			}),
-			{
-				pending: 'Verificando suas credenciais...',
-				success: 'Cadastro realizado com sucesso! 😁',
-				error: 'Ops, algo deu errado! Tente novamente. 😕',
-			},
-		)
-
-		console.log(response)
+		try {
+			const { status } = await api.post(
+				'/users',
+				{
+					name: data.name,
+					email: data.email,
+					password: data.password,
+				},
+				{
+					validateStatus: () => true,
+				},
+			)
+			if (status === 201 || status === 200) {
+				setTimeout(() => {
+					navigate('/login')
+				}, 2000)
+				toast.success('Cadastro realizado com sucesso! 😁')
+			} else if (status === 409) {
+				toast.error(
+					'Ops, esse email já cadastrado! 😕 Faça login para continuar',
+				)
+				console.log(status)
+			} else {
+				throw new Error()
+			}
+		} catch (error) {
+			toast.error('Ops, algo deu errado!😕, Tente novamente')
+		}
 	}
 
 	return (
@@ -93,7 +111,7 @@ export function Register() {
 						<Button type="submit">Criar Conta</Button>
 					</Form>
 					<p>
-						Já possui uma conta? <a href="/login">Faça login</a>
+						Já possui uma conta? <Link to="/login">Faça login</Link>
 					</p>
 				</ContainerLogin>
 			</RightContainer>
@@ -103,3 +121,5 @@ export function Register() {
 
 // erian@email.com
 // 123456
+
+// PAREI NA AULA 17

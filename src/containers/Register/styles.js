@@ -1,3 +1,5 @@
+import { Link as ReactLink } from 'react-router-dom'
+
 import styled from 'styled-components'
 
 import BackgroundLogin from '../../assets/background-login.png'
@@ -100,5 +102,7 @@ export const InputContainer = styled.div`
 		height: 10px;
 	}
 `
-
-// parei na aula 09 - Formulário com React Hook Form
+export const Link = styled(ReactLink)`
+	text-decoration: none;
+	color: #fff;
+`

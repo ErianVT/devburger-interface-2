@@ -10,6 +10,6 @@ createRoot(document.getElementById('root')).render(
 	<StrictMode>
 		<RouterProvider router={router} />
 		<GlobalStyles />
-		<ToastContainer position="top-center" theme="colored" transition="Bounce" />
+		<ToastContainer position="top-center" theme="colored" autoClose={2000} />
 	</StrictMode>,
 )
