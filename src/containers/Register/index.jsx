@@ -121,5 +121,3 @@ export function Register() {
 
 // erian@email.com
 // 123456
-
-// PAREI NA AULA 17

@@ -44,29 +44,29 @@ export function Login() {
 	})
 
 	const onSubmit = async (data) => {
-		try {
-			const response = await toast.promise(
-				api.post('/sessions', {
-					email: data.email,
-					password: data.password,
-				}),
-				{
-					pending: 'Verificando suas credenciais...',
-					success: {
-						render() {
-							setTimeout(() => {
-								navigate('/')
-							}, 2000)
-							return 'Login realizado com sucesso! 🍔'
-						},
+		const {
+			data: { token },
+		} = await toast.promise(
+			api.post('/sessions', {
+				email: data.email,
+				password: data.password,
+			}),
+			{
+				pending: 'Verificando suas credenciais...',
+				success: {
+					render() {
+						setTimeout(() => {
+							navigate('/')
+						}, 2000)
+						return 'Login realizado com sucesso! 🍔'
 					},
 				},
-			)
-			console.log(response)
-		} catch (error) {
-			toast.error('Email ou senha inválidos 😕')
-		}
+				error: 'Email ou senha inválidos 😕',
+			},
+		)
+		localStorage.setItem('token', token)
 	}
+
 	return (
 		<Container>
 			<LeftContainer>
