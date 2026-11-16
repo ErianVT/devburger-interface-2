@@ -48,7 +48,7 @@ export const ContainerItems = styled.div`
 		border-radius: 30px;
 		font-size: 22.5px;
 		font-weight: bold;
-		margin-top: 40%;
+		margin-top: 35%;
 	}
 `
 
