@@ -8,7 +8,6 @@ import BannerMenu from '../../assets/background-menu.svg'
 export const Container = styled.div`
 	width: 100%;
 	min-height: 100vh;
-	background-color: #f0f0f0;
 
 	background:
 		linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
@@ -58,12 +57,25 @@ export const CategoryButton = styled(Link)`
 	text-decoration: none;
 	cursor: pointer;
 	background: none;
-	color: #ff8c05;
+	color: ${(props) => (props.$isActiveCategory ? ' #ff8c05' : '#5d5d5e')};
 	font-size: 24px;
-	font-weight: 500;
+	font-weight: 600;
 	padding-bottom: 5px;
 	line-height: 20px;
-	border-bottom: 3px solid #ff8c05;
+	border: none;
+	border-bottom: ${(props) => props.$isActiveCategory && '3px solid #ff8c05'};
+	animation: ${(props) =>
+		props.$isActiveCategory && ' subirEDescer 2s ease-in-out infinite'};
+
+	@keyframes subirEDescer {
+		0%,
+		100% {
+			transform: translateY(1px); /* Posição inicial e final */
+		}
+		50% {
+			transform: translateY(-3px); /* Sobe 15 pixels na metade do tempo */
+		}
+	}
 `
 
 export const ProductsContainer = styled.div`
@@ -75,5 +87,7 @@ export const ProductsContainer = styled.div`
 	max-width: 1280;
 	margin: 50px 5%;
 `
+
+// animation: subirEDescer 2s ease-in-out infinite;
 
 // PAREI NA AULA 29
